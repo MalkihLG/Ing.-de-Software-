@@ -1,0 +1,170 @@
+                              Switch-Case
+
+                        Análisis de ejercicios
+
+1.- Programa que lea una variable entera mes, comprobar que el valor introducido esté comprendido entre 1 y 12. Indique si el valor corresponde a un mes de 30 días, de 31 o de 28. Supondremos que febrero tiene 28 días. Debe mostrar el nombre del mes.
+1.DíasMes
+Entrada
+Se necesita un número entero que representa el mes del año (entre 1 y 12).
+Ejemplo: si el usuario escribe 5, significa mayo.
+Proceso
+1.Usare la estructura switch-case para identificar el mes.
+Cada case estará asociado a un número de mes (1 = enero, 2 = febrero, ..., 12 = diciembre).
+En cada case, se muestra:
+	El nombre del mes.
+	La cantidad de días que tiene ese mes.
+2.Se debe considerar que:
+	Enero, marzo, mayo, julio, agosto, octubre y diciembre → 31 días.
+	Abril, junio, septiembre y noviembre → 30 días.
+	Febrero → 28 días.
+Si el número ingresado no está entre 1 y 12, se usará el default para mostrar un mensaje: "Escribe un número entre 1 y 12".
+Salidas
+El programa mostrará un mensaje en pantalla con:
+	El nombre del mes.
+	La cantidad de días que tiene ese mes.
+
+
+
+2.- Realizar un programa que lea dos números enteros y un carácter comprendido entre (+, -, *, /) para realizar las operaciones básicas de suma, resta, multiplicación, división, considerar que para la división verificar el divisor que sea diferente de 0 (cero), si es el caso indicar error de división por cero.
+2.CalBasic
+Entrada
+	Dos números enteros: num1 y num2.
+	Un carácter que representa la operación:
++ → suma
+- → resta
+* → multiplicación
+/ → división
+Proceso
+1.Se pedirá al usuario los dos números y el símbolo de operación.
+2.Con switch-case, el programa elegirá qué operación realizar:
+	Si elige +, se suman los números.
+	Si elige -, se restan.
+	Si elige *, se multiplican.
+	Si elige /, se dividen (pero antes se valida que el segundo número no sea cero, porque la división entre cero no está permitida).
+Si el usuario ingresa un operador distinto de los establecidos, se mostrará un mensaje de “Operador inválido, intenta con otro diferente”.
+Salidas
+El resultado de la operación solicitada, o un mensaje de error en caso de que:
+	El operador no sea válido.
+	El divisor sea cero en la división.
+
+
+
+3.- Realizar un programa con un menú de opciones de cálculo de áreas para un cuadrado, rectángulo, triángulo, círculo, el usuario elige la opción, leer los datos necesarios para el cálculo y mostrar el resultado de la opción elegida.
+3.AreaFiguras
+Entrada
+Número entero (opción) que indica la figura:
+	1 = círculo
+	2 = cuadrado
+	3 = rectángulo
+	4 = triángulo
+Según la figura, se piden distintos valores:
+	Círculo → radio.
+	Cuadrado → lado.
+	Rectángulo → base y altura.
+	Triángulo → base y altura.
+Proceso
+1.Mostrar un menú al usuario con las opciones.
+2.Leer la opción y, con un switch-case, realizar el cálculo:
+	Círculo → área = π * radio * radio.
+	Cuadrado → área = lado * lado.
+	Rectángulo → área = base * altura.
+	Triángulo → área = (base * altura) / 2.
+Si la opción no es válida, mostrar un mensaje de error.
+Salidas
+Mostrar el área calculada con un mensaje indicando la figura.
+
+
+
+4.- Realiza un programa que pida una hora por teclado y que muestre los mensajes “buenos días”, “buenas tardes” o “buenas noches” según la hora. Se utilizarán los rangos de 6 a 12, de 13 a 20 y de 21 a 5. respectivamente. Sólo se tienen en cuenta las horas, los minutos no se deben introducir por teclado.
+4. SaludoTiempo
+Entrada
+Hora del día (entero de 0 a 23).
+No se consideran minutos, solo la hora completa.
+Proceso
+1.	Mostrar un mensaje al usuario indicando que ingrese la hora.
+2.	Leer la hora ingresada por el usuario.
+3.	Verificar que la hora esté en el rango válido (0-23).
+4.	Usar un switch-case para determinar el saludo según la hora:
+	6 a 12 → "Buenos días"
+	13 a 20 → "Buenas tardes"
+	21 a 23 y 0 a 5 → "Buenas noches"
+Si la hora no es válida (menor que 0 o mayor que 23), mostrar un mensaje de error.
+Se puede agregar un mensaje adicional para indicar al usuario en qué rango del horario está su hora.
+Salida
+Mostrar el saludo conforme a la hora que ingrese el usuario("Buenos días", "Buenas tardes" o "Buenas noches").
+	Si la hora es inválida, mostrar "Hora no válida, ingresa otra hora ".
+	Posible mensaje adicional: "Has ingresado una hora dentro del rango de la mañana/tarde/noche".
+
+
+
+5.- Escribe un programa que nos diga el horóscopo a partir del día y el mes de nacimiento.
+5.Horóscopo 
+Entrada
+Día de nacimiento (entero 1-31).
+Mes de nacimiento (entero 1-12).
+Proceso
+1.	Mostrar un mensaje solicitando al usuario que ingrese su día y mes de nacimiento.
+2.	Leer los valores ingresados.
+3.	Usar un switch-case sobre la variable mes para seleccionar el signo zodiacal correspondiente:
+	Dentro de cada case, se usa un operador ternario ? : para determinar el signo según el día.
+Ejemplo: System.out.println(dia <= 20 ? "Piscis" : "Aries"); break;
+Si el mes ingresado no está entre 1 y 12, se usa default para mostrar “Mes no válido, ingresa un número del 1 al 12 ”.
+No valida días máximos por mes (se asume que es del 1-31)
+Salida
+Mostrar el signo zodiacal según la fecha ingresada.
+	Si el mes no es válido, mostrar “Mes no válido, ingresa un número del 1 al 12”.
+
+
+
+6.- Realiza una solución computacional que calcule el precio de unas entradas de cine en función del número de personas y del día de la semana. El precio base de una entrada son $50 pesos. El miércoles (día de promoción), el precio de la entrada es de $30 pesos. Los jueves si vas en pareja la entrada para los dos es de $75 pesos. Pero si cuentas con membresía se obtiene un 10% de descuento todos los días. Si un jueves, un grupo de 6 personas compran entradas, el precio total sería de $225 pesos ya que son 3 parejas; pero si es un grupo de 7, pagarán 3 entradas de pareja más 1 individual que son $275 pesos (225 + 50).
+6. EntradaCine
+Entrada
+Número de personas (entero)
+Día de la semana (1 = lunes, …, 7 = domingo)
+Si tiene membresía (sí/no)
+Proceso
+1.	Definir los precios base:
+	Entrada normal: $50
+	Miércoles: $30
+	Jueves en pareja: 2 entradas = $75
+2.	Pedir al usuario que ingrese número de personas, día de la semana y si tiene membresía.
+3.	Calcular el precio:
+	Si es miércoles → cada entrada $30
+	Si es jueves → personas en parejas:
+	Cada pareja $75
+	Si hay una persona extra → pagar entrada individual $50
+	Otros días → precio normal $50 por persona
+Aplicar descuento de membresía (10%) si aplica.
+4.	Mostrar el precio total a pagar.
+Salida:
+Precio total a pagar por persona o grupo. 
+(Posible mensaje indicando el día y si se aplicó descuento de membresía).
+
+
+
+7.- Una pastelería nos ha pedido realizar un programa que haga presupuestos de tartas. El programa preguntará primero de qué sabor quiere el usuario la tarta: manzana, fresa o chocolate. La tarta de manzana vale $200 pesos y la de fresa $250 pesos. En caso de seleccionar la tarta de chocolate, el programa debe preguntar además si el chocolate es negro o blanco; la primera opción vale $280 pesos y la segunda $300  pesos. Por último, se pregunta si se añade snack puede elegir entre (fresa, galleta, durazno, etc.) y si se personaliza con un nombre; el snack suma $25 porcada uno y la escritura del nombre $30.
+7: PresuTartas
+Entrada
+Sabor de la tarta: manzana, fresa o chocolate
+Si el sabor es chocolate, tipo de chocolate: negro o blanco
+Si quiere añadir snack(es) (fresa, galleta, durazno, etc.)
+Si quiere personalizarla con un nombre
+Proceso
+1.	Preguntar al usuario el sabor de la tarta.
+2.	Asignar el precio base según el sabor:
+	Manzana → $200
+	Fresa → $250
+	Chocolate: preguntar tipo:
+	Chocolate negro → $280
+	Chocolate blanco → $300
+3.	Preguntar si quiere añadir snacks:
+	Por cada snack elegido → sumar $25
+4.	Preguntar si quiere personalizarla con un nombre:
+	Si se agrega nombre → sumar $30
+5.	Calcular el precio total sumando todos los conceptos:
+	Precio base + snacks + personalización
+6.	Mostrar el presupuesto final al usuario.
+Salida
+Mostrar un mensaje con el precio total de la tarta.
+	Opcional: indicar los adicionales (snacks y personalización) elegidos.
+
